@@ -21,22 +21,25 @@
       background: #020617;
       padding: 30px;
       border-radius: 12px;
-      max-width: 420px;
+      max-width: 460px;
       text-align: center;
       box-shadow: 0 10px 30px rgba(0,0,0,0.4);
     }
 
     h1 {
-      margin-bottom: 10px;
+      margin-bottom: 20px;
+      font-size: 24px;
     }
 
-    p {
-      opacity: 0.8;
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 16px;
     }
 
-    button {
-      margin-top: 20px;
-      padding: 12px 20px;
+    .option {
+      padding: 12px 16px;
       border: none;
       border-radius: 8px;
       background: #3b82f6;
@@ -45,23 +48,43 @@
       cursor: pointer;
     }
 
-    button:hover {
+    .option:hover {
       background: #2563eb;
+    }
+
+    .message {
+      min-height: 24px;
+      font-size: 15px;
+      color: #cbd5f5;
     }
   </style>
 </head>
 <body>
 
   <div class="card">
-    <h1>Clarity Tool</h1>
-    <p>One question. One decision. Less noise.</p>
-    <button onclick="showMessage()">Get Clarity</button>
+    <h1>What deserves your attention right now?</h1>
+    <div class="options" id="options">
+      <button class="option" data-message="Focus on the one action that moves the goal forward today.">Clarify the next action</button>
+      <button class="option" data-message="Name the outcome you want before taking another step.">Define the desired result</button>
+      <button class="option" data-message="Let go of what doesn't change the outcome right now.">Eliminate the distraction</button>
+    </div>
+    <p class="message" id="message" aria-live="polite"></p>
   </div>
 
   <script>
-    function showMessage() {
-      alert("Clarity comes from choosing what matters most — and ignoring the rest.");
-    }
+    const options = document.querySelectorAll('.option');
+    const message = document.getElementById('message');
+
+    options.forEach((option) => {
+      option.addEventListener('click', () => {
+        message.textContent = option.dataset.message;
+        options.forEach((otherOption) => {
+          if (otherOption !== option) {
+            otherOption.style.display = 'none';
+          }
+        });
+      });
+    });
   </script>
 
 </body>
