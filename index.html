@@ -57,6 +57,22 @@
       font-size: 15px;
       color: #cbd5f5;
     }
+
+    .try-again {
+      margin-top: 12px;
+      padding: 8px 12px;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      background: transparent;
+      color: #cbd5f5;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .try-again:hover {
+      border-color: #475569;
+      color: #e2e8f0;
+    }
   </style>
 </head>
 <body>
@@ -69,11 +85,13 @@
       <button class="option" data-message="Let go of what doesn't change the outcome right now.">Eliminate the distraction</button>
     </div>
     <p class="message" id="message" aria-live="polite"></p>
+    <button class="try-again" id="try-again" type="button" hidden>Try again</button>
   </div>
 
   <script>
     const options = document.querySelectorAll('.option');
     const message = document.getElementById('message');
+    const tryAgain = document.getElementById('try-again');
 
     options.forEach((option) => {
       option.addEventListener('click', () => {
@@ -83,7 +101,16 @@
             otherOption.style.display = 'none';
           }
         });
+        tryAgain.hidden = false;
       });
+    });
+
+    tryAgain.addEventListener('click', () => {
+      options.forEach((option) => {
+        option.style.display = '';
+      });
+      message.textContent = '';
+      tryAgain.hidden = true;
     });
   </script>
 
