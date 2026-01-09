@@ -73,6 +73,21 @@
       border-color: #475569;
       color: #e2e8f0;
     }
+
+    .next-step {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      background: #1e293b;
+      color: #e2e8f0;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .next-step:hover {
+      background: #334155;
+    }
   </style>
 </head>
 <body>
@@ -86,12 +101,14 @@
     </div>
     <p class="message" id="message" aria-live="polite"></p>
     <button class="try-again" id="try-again" type="button" hidden>Try again</button>
+    <a class="next-step" id="next-step" href="next-step.html" hidden>Go to next step</a>
   </div>
 
   <script>
     const options = document.querySelectorAll('.option');
     const message = document.getElementById('message');
     const tryAgain = document.getElementById('try-again');
+    const nextStep = document.getElementById('next-step');
 
     options.forEach((option) => {
       option.addEventListener('click', () => {
@@ -102,6 +119,7 @@
           }
         });
         tryAgain.hidden = false;
+        nextStep.hidden = false;
       });
     });
 
@@ -111,6 +129,7 @@
       });
       message.textContent = '';
       tryAgain.hidden = true;
+      nextStep.hidden = true;
     });
   </script>
 
