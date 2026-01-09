@@ -139,8 +139,8 @@
   <main class="page-content">
     <div class="card">
       <a class="logo" href="index.html">One Page Tool</a>
-      <h1>Your next step starts here.</h1>
-      <p>Use the clarity you chose to define one small action you can finish today. Pick a starting time, remove the main blocker, and begin with the first two minutes.</p>
+      <h1 id="next-step-heading">Your next step starts here.</h1>
+      <p id="next-step-message">Use the clarity you chose to define one small action you can finish today. Pick a starting time, remove the main blocker, and begin with the first two minutes.</p>
       <p class="trust-line">Built by Best of Motivation — tools designed to reduce noise, not add to it.</p>
       <a class="back-link" href="index.html">Back to clarity tool</a>
     </div>
@@ -154,5 +154,36 @@
       </ul>
     </nav>
   </footer>
+
+  <script>
+    const contentByReason = {
+      'too-many-tasks': {
+        heading: 'One priority can be enough.',
+        message: 'Let one choice carry the load for now.'
+      },
+      'cannot-decide': {
+        heading: 'A reversible choice can feel lighter.',
+        message: 'It is okay to pick the option you can revisit.'
+      },
+      'low-energy': {
+        heading: 'Gentle recovery still matters.',
+        message: 'Rest or a tiny refill can be enough for now.'
+      },
+      'emotional-heaviness': {
+        heading: 'Grounding brings steadiness.',
+        message: 'Safety and softness matter before anything else.'
+      }
+    };
+
+    const heading = document.getElementById('next-step-heading');
+    const message = document.getElementById('next-step-message');
+    const params = new URLSearchParams(window.location.search);
+    const reason = params.get('reason');
+
+    if (reason && contentByReason[reason]) {
+      heading.textContent = contentByReason[reason].heading;
+      message.textContent = contentByReason[reason].message;
+    }
+  </script>
 </body>
 </html>

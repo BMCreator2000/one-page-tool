@@ -178,10 +178,10 @@
     <a class="logo" href="index.html">Overwhelm Reset</a>
     <h1>Overwhelmed? Reset your focus in 30 seconds.</h1>
     <div class="options" id="options">
-      <button class="option" data-message="Choose the smallest next step and let the rest wait. This narrows the load so your brain can move with less friction. Write down the tiniest action you can finish in five minutes.">Too many tasks at once</button>
-      <button class="option" data-message="Pick one priority that matters most and park the rest. This creates a clear lane so you are not pulled in every direction. Circle the one item that will feel most relieving to finish today.">I cannot decide what comes first</button>
-      <button class="option" data-message="Pause for three slow breaths, then resume with one tiny action. A short reset gives your body room to re-engage. Set a two-minute timer and start the simplest step.">My energy feels drained</button>
-      <button class="option" data-message="Name the feeling, then do one grounding action you can finish quickly. Naming it reduces the swirl so you can return to what matters. Touch something solid, then do one quick, easy task.">Everything feels emotionally heavy</button>
+      <button class="option" data-message="Choose the smallest next step and let the rest wait. This narrows the load so your brain can move with less friction. Write down the tiniest action you can finish in five minutes." data-reason="too-many-tasks">Too many tasks at once</button>
+      <button class="option" data-message="Pick one priority that matters most and park the rest. This creates a clear lane so you are not pulled in every direction. Circle the one item that will feel most relieving to finish today." data-reason="cannot-decide">I cannot decide what comes first</button>
+      <button class="option" data-message="Pause for three slow breaths, then resume with one tiny action. A short reset gives your body room to re-engage. Set a two-minute timer and start the simplest step." data-reason="low-energy">My energy feels drained</button>
+      <button class="option" data-message="Name the feeling, then do one grounding action you can finish quickly. Naming it reduces the swirl so you can return to what matters. Touch something solid, then do one quick, easy task." data-reason="emotional-heaviness">Everything feels emotionally heavy</button>
     </div>
     <p class="message" id="message" aria-live="polite">What is overwhelming you most right now?</p>
     <p class="trust-line">Built by Best of Motivation — tools designed to reduce noise, not add to it.</p>
@@ -208,6 +208,7 @@
     options.forEach((option) => {
       option.addEventListener('click', () => {
         message.textContent = option.dataset.message;
+        nextStep.href = `next-step.html?reason=${encodeURIComponent(option.dataset.reason)}`;
         options.forEach((otherOption) => {
           if (otherOption !== option) {
             otherOption.style.display = 'none';
@@ -225,6 +226,7 @@
       message.textContent = '';
       tryAgain.hidden = true;
       nextStep.hidden = true;
+      nextStep.href = 'next-step.html';
     });
   </script>
 
