@@ -11,10 +11,49 @@
       background: #0f172a;
       color: #e5e7eb;
       display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .site-header,
+    .site-footer {
+      background: #020617;
+      padding: 16px 24px;
+    }
+
+    .site-nav {
+      display: flex;
+      justify-content: center;
+    }
+
+    .site-nav ul {
+      display: flex;
+      gap: 16px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .site-nav a {
+      color: #93c5fd;
+      font-weight: 600;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 12px;
+    }
+
+    .site-nav a:hover {
+      color: #bfdbfe;
+    }
+
+    .page-content {
+      flex: 1;
+      display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      margin: 0;
+      padding: 24px;
     }
 
     .card {
@@ -107,8 +146,17 @@
   </style>
 </head>
 <body>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Primary">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="next-step.html">Next step</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <div class="card">
+  <main class="page-content">
+    <div class="card">
     <a class="logo" href="index.html">One Page Tool</a>
     <h1>What deserves your attention right now?</h1>
     <div class="options" id="options">
@@ -119,7 +167,17 @@
     <p class="message" id="message" aria-live="polite"></p>
     <button class="try-again" id="try-again" type="button" hidden>Try again</button>
     <a class="next-step" id="next-step" href="next-step.html" hidden>Go to next step</a>
-  </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="site-nav" aria-label="Footer">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="next-step.html">Next step</a></li>
+      </ul>
+    </nav>
+  </footer>
 
   <script>
     const options = document.querySelectorAll('.option');
