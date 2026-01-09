@@ -2,11 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-codex/add-text-based-logo-to-html-pages
   <title>One Page Tool - Next Step</title>
-
-  <title>Your Next Step</title>
- main
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -15,10 +11,49 @@ codex/add-text-based-logo-to-html-pages
       background: #0f172a;
       color: #e5e7eb;
       display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .site-header,
+    .site-footer {
+      background: #020617;
+      padding: 16px 24px;
+    }
+
+    .site-nav {
+      display: flex;
+      justify-content: center;
+    }
+
+    .site-nav ul {
+      display: flex;
+      gap: 16px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .site-nav a {
+      color: #93c5fd;
+      font-weight: 600;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 12px;
+    }
+
+    .site-nav a:hover {
+      color: #bfdbfe;
+    }
+
+    .page-content {
+      flex: 1;
+      display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      margin: 0;
+      padding: 24px;
     }
 
     .card {
@@ -30,7 +65,6 @@ codex/add-text-based-logo-to-html-pages
       box-shadow: 0 10px 30px rgba(0,0,0,0.4);
     }
 
-codex/add-text-based-logo-to-html-pages
     .logo {
       display: inline-block;
       margin-bottom: 12px;
@@ -48,24 +82,15 @@ codex/add-text-based-logo-to-html-pages
 
     h1 {
       margin-top: 0;
-      margin-bottom: 20px;
-
-    h1 {
       margin-bottom: 16px;
- main
       font-size: 24px;
     }
 
     p {
-codex/add-text-based-logo-to-html-pages
-      margin: 0;
-      color: #cbd5f5;
-      font-size: 16px;
-
+      margin: 0 0 20px;
       font-size: 15px;
       color: #cbd5f5;
       line-height: 1.5;
-      margin: 0 0 20px;
     }
 
     .back-link {
@@ -80,25 +105,35 @@ codex/add-text-based-logo-to-html-pages
 
     .back-link:hover {
       background: #2563eb;
-main
     }
   </style>
 </head>
 <body>
- codex/add-text-based-logo-to-html-pages
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Primary">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="next-step.html">Next step</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <div class="card">
-    <a class="logo" href="index.html">One Page Tool</a>
-    <h1>Your next step starts here.</h1>
-    <p>Choose one small action and give it your full attention.</p>
-  </div>
+  <main class="page-content">
+    <div class="card">
+      <a class="logo" href="index.html">One Page Tool</a>
+      <h1>Your next step starts here.</h1>
+      <p>Use the clarity you chose to define one small action you can finish today. Pick a starting time, remove the main blocker, and begin with the first two minutes.</p>
+      <a class="back-link" href="index.html">Back to clarity tool</a>
+    </div>
+  </main>
 
-
-  <div class="card">
-    <h1>Your Next Step</h1>
-    <p>Use the clarity you chose to define one small action you can finish today. Pick a starting time, remove the main blocker, and begin with the first two minutes.</p>
-    <a class="back-link" href="index.html">Back to clarity tool</a>
-  </div>
- main
+  <footer class="site-footer">
+    <nav class="site-nav" aria-label="Footer">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="next-step.html">Next step</a></li>
+      </ul>
+    </nav>
+  </footer>
 </body>
 </html>
